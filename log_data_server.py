@@ -137,66 +137,95 @@ diet_data = {
     }
 }
 
-# Dosha detection logic
+# Dosha detection
 def detect_dosha(data):
     vata = pitta = kapha = 0
-    hair = data.get('hair', '').lower()
-    if "soft" in hair: vata += 1
-    if "fine" in hair: vata += 1
-    if "grey" in hair: pitta += 1
 
+    frame = data.get('bodyFrame', '').lower()
+    skin = data.get('skinType', '').lower()
+    hair = data.get('hairType', '').lower()
     digestive = data.get('digestivePattern', '').lower()
+    energy = data.get('energy', '').lower()
+    sleep = data.get('sleep', '').lower()
+    emotion = data.get('emotion', '').lower()
+    activity = data.get('physicalActivity', '').lower()
+    diet = data.get('diet', '').lower()
+
+    if "thin" in frame: vata += 1
+    if "medium" in frame: pitta += 1
+    if "large" in frame: kapha += 1
+
+    if "dry" in skin: vata += 1
+    if "oily" in skin: pitta += 1
+    if "smooth" in skin: kapha += 1
+
+    if "soft" in hair or "fine" in hair: vata += 1
+    if "greying" in hair or "thin" in hair: pitta += 1
+    if "thick" in hair: kapha += 1
+
+    if "irregular" in digestive: vata += 1
     if "fast" in digestive or "acid" in digestive: pitta += 1
     if "slow" in digestive: kapha += 1
 
-    energy = data.get('energy', '').lower()
-    if "drains fast" in energy: vata += 1
-    if "steady" in energy: kapha += 1
+    if "drains" in energy or "erratic" in energy: vata += 1
+    if "intense" in energy: pitta += 1
+    if "stable" in energy: kapha += 1
 
-    sleep = data.get('sleep', '').lower()
-    if "long" in sleep: kapha += 1
-    if "light" in sleep: vata += 1
+    if "light" in sleep or "interrupted" in sleep: vata += 1
+    if "short" in sleep: pitta += 1
+    if "deep" in sleep or "long" in sleep: kapha += 1
 
-    symptoms = data.get('symptoms', [])
-    for symptom in symptoms:
-        symptom = symptom.lower()
-        if "headache" in symptom or "acid" in symptom: pitta += 1
-        if "low energy" in symptom: kapha += 1
-        if "anxiety" in symptom: vata += 1
+    if "anxious" in emotion or "overwhelmed" in emotion: vata += 1
+    if "angry" in emotion or "irritable" in emotion: pitta += 1
+    if "calm" in emotion or "lazy" in emotion: kapha += 1
 
-    emotion = data.get('emotion', '').lower()
-    if "lazy" in emotion or "calm" in emotion: kapha += 1
-    if "overwhelmed" in emotion or "fear" in emotion: vata += 1
+    if "intense" in activity or "regular" in activity: pitta += 1
+    if "irregular" in activity: vata += 1
+    if "less" in activity or "none" in activity: kapha += 1
 
-    exercise = data.get('exercise', '').lower()
-    if "6" in exercise: pitta += 1
-    if "less" in exercise: kapha += 1
-
-    diet = data.get('diet', '').lower()
-    if "fresh" in diet: kapha += 1
     if "light" in diet: vata += 1
+    if "spicy" in diet or "rich" in diet: pitta += 1
+    if "heavy" in diet: kapha += 1
 
-    result = {"Vata": vata, "Pitta": pitta, "Kapha": kapha}
-    dominant = max(result, key=result.get)
-    return {"dosha": dominant, "score": result}
+    scores = {"Vata": vata, "Pitta": pitta, "Kapha": kapha}
+    dominant = max(scores, key=scores.get)
 
+    return {
+        "dosha": dominant,
+        "score": scores,
+        "userInfo": {
+            "ageGroup": data.get('ageGroup', ''),
+            "sex": data.get('sex', ''),
+            "city": data.get('city', ''),
+            "country": data.get('country', ''),
+            "goal": data.get('mainHealthGoal', ''),
+            "condition": data.get('medicalCondition', ''),
+            "allergies": data.get('foodAllergies', [])
+        }
+    }
 
 @app.route('/log_data', methods=['POST'])
 def analyze_dosha():
     data = request.get_json()
-    detected = detect_dosha(data)
-    dosha = detected["dosha"]
+    result = detect_dosha(data)
+    dosha = result["dosha"]
+    allergies = result["userInfo"].get("allergies", [])
+
+    # Filter diet suggestions based on allergies
+    diet = diet_data[dosha].copy()
+    if allergies:
+        diet["prefer"] = [food for food in diet["prefer"] if food not in allergies]
 
     return jsonify({
         "dosha": dosha,
-        "score": detected["score"],
+        "score": result["score"],
         "qualities": dosha_qualities[dosha],
         "insight": dosha_insights[dosha],
         "yoga": yoga_asanas[dosha],
         "meditation": meditation_data[dosha],
-        "diet": diet_data[dosha]
+        "diet": diet,
+        "userInfo": result["userInfo"]
     })
-
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)
