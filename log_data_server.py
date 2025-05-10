@@ -11,21 +11,30 @@ yoga_asanas = {
             "name": "Tree Pose",
             "duration": {"value": 5, "unit": "minutes"},
             "time": "Morning",
+            "image": "https://i.ibb.co/BHGx9Zdk/Whats-App-Image-2025-05-10-at-01-27-08-ff91fa2f.jpg ",
+            "video": "https://www.youtube.com/watch?v=yVE4XXFFO70&utm_source=chatgpt.com"
+
         },
         {
             "name": "Warrior Pose",
             "duration": {"value": 7, "unit": "minutes"},
             "time": "Morning",
+            "image": "https://i.ibb.co/MxHDjpdq/Whats-App-Image-2025-05-10-at-01-27-21-93386725.jpg",
+            "video": "https://www.youtube.com/watch?v=5rT--p_cLOc&utm_source=chatgpt.com"
         },
         {
             "name": "Downward Dog",
             "duration": {"value": 6, "unit": "minutes"},
             "time": "Evening",
+            "image":"https://i.ibb.co/jvFKmG3R/Whats-App-Image-2025-05-10-at-01-27-36-38eca4b3.jpg",
+            "video":"https://www.youtube.com/watch?v=j97SSGsnCAQ&utm_source=chatgpt.com"
         },
         {
             "name": "Seated Forward Bend",
             "duration": {"value": 8, "unit": "minutes"},
             "time": "Evening",
+            "image":"https://i.ibb.co/VYXjgS7M/Whats-App-Image-2025-05-10-at-01-31-15-ad36a53d.jpg",
+            "video":"https://www.youtube.com/watch?v=W8uyYErso_0&utm_source=chatgpt.com"
         }
     ],
     "Pitta": [
@@ -33,21 +42,29 @@ yoga_asanas = {
             "name": "Child's Pose",
             "duration": {"value": 6, "unit": "minutes"},
             "time": "Evening",
+            "video":"https://www.youtube.com/watch?v=eqVMAPM00DM&utm_source=chatgpt.com",
+            "image":"https://i.ibb.co/XkGKJ9nK/Whats-App-Image-2025-05-10-at-23-38-35-f35606a4.jpg"
         },
         {
             "name": "Triangle Pose",
             "duration": {"value": 7, "unit": "minutes"},
             "time": "Morning",
+            "video":"https://www.youtube.com/watch?v=upFYlxZHif0&utm_source=chatgpt.com",
+            "image":"https://i.ibb.co/G4hLLXZG/Whats-App-Image-2025-05-10-at-23-39-10-7a8895eb.jpg"
         },
         {
             "name": "Bridge Pose",
             "duration": {"value": 8, "unit": "minutes"},
             "time": "Evening",
+            "video":"https://www.youtube.com/watch?v=NnbvPeAIhmA&utm_source=chatgpt.com",
+            "image":"https://i.ibb.co/1prHzc8/Whats-App-Image-2025-05-10-at-23-39-41-8f8edc7f.jpg"
         },
         {
             "name": "Camel Pose",
             "duration": {"value": 5, "unit": "minutes"},
             "time": "Morning",
+            "video":"https://www.youtube.com/watch?v=AigVwIFvmAQ&utm_source=chatgpt.com",
+            "image":"https://i.ibb.co/nq7j5dss/Whats-App-Image-2025-05-10-at-23-57-55-ff577a32.jpg"
         }
     ],
     "Kapha": [
@@ -55,22 +72,31 @@ yoga_asanas = {
             "name": "Sun Salutation",
             "duration": {"value": 10, "unit": "minutes"},
             "time": "Morning",
+            "video":"https://www.youtube.com/watch?v=73sjOu0g58M&utm_source=chatgpt.com",
+            "image":"https://i.ibb.co/JFwqdGFC/Whats-App-Image-2025-05-10-at-23-58-48-d6815772.jpg"
            
         },
         {
             "name": "Bow Pose",
             "duration": {"value": 7, "unit": "minutes"},
             "time": "Afternoon",
+            "video":"https://www.youtube.com/watch?v=CZGtSaOvb50&utm_source=chatgpt.com",
+            "image":"https://i.ibb.co/VpwhKh3t/Whats-App-Image-2025-05-11-at-00-17-55-f354731c.jpg"
         },
         {
             "name": "Cobra Pose",
             "duration": {"value": 6, "unit": "minutes"},
             "time": "Morning",
+            "video":"https://www.youtube.com/watch?v=n6jrC6WeF84&utm_source=chatgpt.com",
+            "image":"https://i.ibb.co/YFYvwtyF/Whats-App-Image-2025-05-11-at-00-21-33-1c2821e8.jpg"
+
         },
         {
             "name": "Lotus Pose",
             "duration": {"value": 5, "unit": "minutes"},
             "time": "Evening",
+            "video":"https://www.youtube.com/watch?v=y9u3MwkuHYQ&utm_source=chatgpt.com",
+            "image":"https://i.ibb.co/6RQ8LrFw/Whats-App-Image-2025-05-11-at-00-19-55-1f242942.jpg"
         }
     ]
 }
