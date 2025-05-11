@@ -104,15 +104,18 @@ yoga_asanas = {
 meditation_data = {
     "Vata": {
         "description": "Grounding meditation with body awareness.",
-        "duration": {"value": 15, "unit": "minutes"}
+        "duration": {"value": 15, "unit": "minutes"},
+        "image" : "https://i.ibb.co/ZRrz4stw/Whats-App-Image-2025-05-11-at-13-42-37-9e008a5f.jpg"
     },
     "Pitta": {
         "description": "Cooling meditation with breathwork.",
-        "duration": {"value": 12, "unit": "minutes"}
+        "duration": {"value": 12, "unit": "minutes"},
+        "image": "https://i.ibb.co/LzSkTzDp/Whats-App-Image-2025-05-11-at-13-42-47-87dab2eb.jpg"
     },
     "Kapha": {
         "description": "Energizing meditation with movement.",
-        "duration": {"value": 10, "unit": "minutes"}
+        "duration": {"value": 10, "unit": "minutes"},
+        "image":"https://i.ibb.co/3mL0HkXx/Whats-App-Image-2025-05-11-at-13-42-59-8c1b22c7.jpg"
     }
 }
 
